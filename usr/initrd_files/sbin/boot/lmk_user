@@ -1,0 +1,40 @@
+# lmk_user: user preset file for LMKset -kodos 
+#
+# copy this file to /data/local, edit it to your liking, then enable it
+# with 'setprop persist.lmkset.preset 0'
+#
+# REBOOT for settings to take effect!
+
+PRESET_0_ADJ_1=0
+PRESET_0_ADJ_2=1
+PRESET_0_ADJ_3=2
+PRESET_0_ADJ_4=3
+PRESET_0_ADJ_5=4
+PRESET_0_ADJ_6=5
+PRESET_0_ADJ_7=6
+PRESET_0_ADJ_8=7
+PRESET_0_ADJ_9=15
+
+PRESET_0_MEM_1=2048
+PRESET_0_MEM_2=3072
+PRESET_0_MEM_3=4096
+PRESET_0_MEM_4=4096
+PRESET_0_MEM_5=6144
+PRESET_0_MEM_6=6144
+PRESET_0_MEM_7=6144
+PRESET_0_MEM_8=7168
+PRESET_0_MEM_9=8192
+
+PRESET_0_Amap_1=1
+PRESET_0_Amap_2=2
+PRESET_0_Amap_3=3
+PRESET_0_Amap_4=5
+PRESET_0_Amap_5=8
+PRESET_0_Amap_6=9
+
+PRESET_0_Mmap_1=1
+PRESET_0_Mmap_2=2
+PRESET_0_Mmap_3=3
+PRESET_0_Mmap_4=5
+PRESET_0_Mmap_5=8
+PRESET_0_Mmap_6=9
