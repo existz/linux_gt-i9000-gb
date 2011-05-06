@@ -13,6 +13,9 @@ TWEAK_GOVERNOR_CONSERVATIVE="$TWEAK_BASE.gov_conservative";
 TWEAK_SCHEDULER_DEADLINE="$TWEAK_BASE.sched_deadline";
 TWEAK_TOUCHSCREEN="$TWEAK_BASE.touchscreen";
 
+LMK_PRESET_DEFAULT=2
+LMK_PRESET_TWEAK=3
+
 for i in $TWEAK_IO $TWEAK_NOATIME $TWEAK_VM_SWAPPINESS $TWEAK_VM_DIRTY $TWEAK_SCHEDULER $TWEAK_MINFREE $TWEAK_SDCARD; do
   if [ "$(getprop $i)" = "" ]; then
     setprop $i enabled;
@@ -95,8 +98,10 @@ if [ $(getprop $TWEAK_SCHEDULER) = "enabled" ]; then
 fi;
 
 if [ $(getprop $TWEAK_MINFREE) = "enabled" ]; then
-  if [ -e /sys/module/lowmemorykiller/parameters/minfree ]; then
-    echo "2560,4096,6144,7680,11264,12288" > /sys/module/lowmemorykiller/parameters/minfree
+  setprop persist.lmkset.preset $LMK_PRESET_TWEAK
+else
+  if [ $(getprop persist.lmkset.preset) == $LMK_PRESET_TWEAK ]; then
+    setprop persist.lmkset.preset $LMK_PRESET_DEFAULT
   fi;
 fi;
 

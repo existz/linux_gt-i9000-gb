@@ -7,6 +7,7 @@
 /sbin/ext/busybox sh /sbin/boot/ext4speed.sh
 /sbin/ext/busybox sh /sbin/boot/tweaks.sh
 /sbin/ext/busybox sh /sbin/boot/scripts.sh
+/sbin/ext/busybox sh /sbin/boot/lmkset.sh
 
 read sync < /data/sync_fifo
 rm /data/sync_fifo
