@@ -1,5 +1,5 @@
 if [ -d /system/etc/init.d ]; then
-  busybox run-parts /system/etc/init.d
+  /sbin/ext/busybox run-parts /system/etc/init.d
 fi;
 
 if [ -f /system/bin/customboot.sh ]; then
