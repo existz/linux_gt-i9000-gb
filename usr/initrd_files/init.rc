@@ -494,12 +494,8 @@ on boot
 # set RLIMIT_NICE to allow priorities from 19 to -20
     setrlimit 13 40 40
 
-# Chainfire - system patch run & wait
-    start cfpatch
-    write /data/sync_fifo sync
-
-# to enable wifi
-     setprop wifi.interface "eth0"
+    start ramset
+    write /data/sync_fifo_ramset sync
 
     # Set init its forked children's oom_adj.
     write /proc/1/oom_adj -16
@@ -563,7 +559,19 @@ on boot
     chown system system /dev/dun
 # +++++++++++++++++++++++++++++++++++++++++++      
 
+# Chainfire - system patch run & wait
+    start cfpatch
+    write /data/sync_fifo sync
+
+
     class_start default
+
+
+# kodos - ramset startup
+service ramset /sbin/ramset-boot.sh
+	user root
+	oneshot
+	disabled
 
 # Chainfire - system patch service
 service cfpatch /sbin/boot-patch.sh

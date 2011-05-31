@@ -68,6 +68,8 @@ setprop ro.HOME_APP_ADJ $RAMSET_ADJ_7
 setprop ro.HIDDEN_APP_MIN_ADJ $RAMSET_ADJ_8
 setprop ro.EMPTY_APP_ADJ $RAMSET_ADJ_9
 
+setprop wifi.interface "eth0"
+
 setprop ro.FOREGROUND_APP_MEM $RAMSET_MEM_1
 setprop ro.VISIBLE_APP_MEM $RAMSET_MEM_2
 setprop ro.PERCEPTIBLE_APP_MEM $RAMSET_MEM_3
