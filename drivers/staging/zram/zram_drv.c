@@ -15,6 +15,10 @@
 #define KMSG_COMPONENT "zram"
 #define pr_fmt(fmt) KMSG_COMPONENT ": " fmt
 
+#ifdef CONFIG_ZRAM_DEBUG
+#define DEBUG
+#endif
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/bitops.h>
@@ -241,7 +245,7 @@ static int zram_read(struct zram *zram, struct bio *bio)
 		if (unlikely(!zram->table[index].page)) {
 			pr_debug("Read before write: sector=%lu, size=%u",
 				(ulong)(bio->bi_sector), bio->bi_size);
-			/* Do nothing */
+			handle_zero_page(page);
 			continue;
 		}
 
@@ -703,7 +707,8 @@ static int create_device(struct zram *zram, int device_id)
 	 * and n*PAGE_SIZED sized I/O requests.
 	 */
 	blk_queue_physical_block_size(zram->disk->queue, PAGE_SIZE);
-	blk_queue_logical_block_size(zram->disk->queue, PAGE_SIZE);
+	blk_queue_logical_block_size(zram->disk->queue,
+					ZRAM_LOGICAL_BLOCK_SIZE);
 	blk_queue_io_min(zram->disk->queue, PAGE_SIZE);
 	blk_queue_io_opt(zram->disk->queue, PAGE_SIZE);
 
