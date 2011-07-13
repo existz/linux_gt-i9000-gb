@@ -30,6 +30,10 @@ done
 rm -rf ./mod_inst
 unzip ./usr/prebuilt_ko.zip -d ./usr/initrd_files/lib/modules/
 
+cd drivers/misc/samsung_modemctl
+make
+cd ../../..
+
 make -j`grep 'processor' /proc/cpuinfo | wc -l`
 cp arch/arm/boot/zImage releasetools
 cd releasetools
