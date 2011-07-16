@@ -1,0 +1,8 @@
+#!/bin/sh
+if test "`find /sdcard/Voodoo/ -iname 'enable*logcat*'`" = ""; then
+	echo "no logcat is disabled"
+	rm -f /voodoo/run/logcat_enabled
+else
+    echo "yes logcat is enabled"
+	> /voodoo/run/logcat_enabled
+fi
