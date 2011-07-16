@@ -88,6 +88,14 @@ else
 	log "option: lagfix is allowed to convert /system to Ext4"
 fi
 
+# read if logcat is enabled or not
+if test "`find /sdcard/Voodoo/ -iname 'enable*logcat*'`" != "" ; then
+    logcat_enabled=1
+    log "option: logcat enabled"
+else
+    logcat_enabled=0
+    log "option: logcat disabled"
+fi
 
 # debug mode detection
 if test "`find /sdcard/Voodoo/ -iname 'enable*debug*'`" != "" || test "$debug_mode" = 1 ; then
@@ -208,13 +216,18 @@ if test $lagfix_enabled = 1; then
 		convert system rfs
 	fi
 
-	letsgo
 else
 
 	convert cache rfs
 	convert dbdata rfs
 	convert data rfs
 	convert system rfs
-	
-	letsgo
+
 fi
+
+if test $logcat_enabled = 1; then
+    insmod /lib/modules/logger.ko
+fi
+
+letsgo
+
