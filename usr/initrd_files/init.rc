@@ -261,7 +261,7 @@ on post-fs
     # give system access to wpa_supplicant.conf for backup and restore
     mkdir /data/wifi 0777 wifi wifi
 #    mkdir /data/misc/wifi 0771 wifi system
-    mkdir /data/misc/wifi 0770 wifi system
+    mkdir /data/misc/wifi 0771 wifi wifi 
     chmod 0777 /data/misc/wifi/
     chmod 0777 /data/wifi/
     mkdir /data/misc/dhcp 0777 dhcp dhcp
