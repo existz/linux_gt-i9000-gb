@@ -18,6 +18,8 @@ export KBUILD_BUILD_VERSION="0.5.1-RC1-talon-dev"
 #export LOCALVERSION="-I9000XXJVR-CL425308"
 #export LOCALVERSION="-I9000XXJVS-CL565837" 
 export LOCALVERSION="-I9000XXJVT-CL617736"
+export LOCALVERSION="-I9000XFJVA-CL621561"
+
 
 export INSTALL_MOD_PATH=./mod_inst
 make modules -j`grep 'processor' /proc/cpuinfo | wc -l`
