@@ -52,11 +52,15 @@ snd-soc-wm8978-objs := wm8978.o
 snd-soc-wm8988-objs := wm8988.o
 snd-soc-wm8990-objs := wm8990.o
 snd-soc-wm8993-objs := wm8993.o
-ifeq ($(SEC_PROJECT_REGION_OPERATOR),S1_JPN_NTT)
-snd-soc-wm8994-objs := wm8994_samsung.o wm8994_s1ntt.o
-else
 ifeq ($(CONFIG_SND_VOODOO),y)
+ifeq ($(CONFIG_ARIES_NTT),y)
+snd-soc-wm8994-objs := wm8994_samsung.o wm8994_s1ntt.o wm8994_voodoo.o
+else
 snd-soc-wm8994-objs := wm8994_samsung.o wm8994_aries.o wm8994_voodoo.o
+endif
+else
+ifeq ($(CONFIG_ARIES_NTT),y)
+snd-soc-wm8994-objs := wm8994_samsung.o wm8994_s1ntt.o
 else
 snd-soc-wm8994-objs := wm8994_samsung.o wm8994_aries.o
 endif

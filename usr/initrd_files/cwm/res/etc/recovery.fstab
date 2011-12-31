@@ -5,4 +5,3 @@
 /cache		rfs	/dev/block/stl11
 /data		rfs	/dev/block/mmcblk0p2
 /datadata	rfs	/dev/block/stl10
-/boot		bml	boot

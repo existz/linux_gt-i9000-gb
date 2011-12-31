@@ -6,6 +6,7 @@
 /cache		rfs		/dev/block/stl11	rfs16		default
 /sdcard		vfat		/dev/block/mmcblk0p1	default		default
 /data		rfs		/dev/block/mmcblk0p2	rfs32		default
+/preload        vfat            /dev/block/mmcblk0p3    default         default
 
 [format]
 #index		option
