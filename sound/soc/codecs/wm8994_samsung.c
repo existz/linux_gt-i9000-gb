@@ -125,14 +125,18 @@ select_route universal_wm8994_playback_paths[] = {
 	wm8994_set_playback_speaker, wm8994_set_playback_headset,
 	wm8994_set_playback_headset, wm8994_set_playback_bluetooth,
 	wm8994_set_playback_speaker_headset,
+#if !defined(CONFIG_ARIES_NTT)
 	wm8994_set_playback_extra_dock_speaker
+#endif
 };
 
 select_route universal_wm8994_voicecall_paths[] = {
 	wm8994_disable_path, wm8994_set_voicecall_receiver,
 	wm8994_set_voicecall_speaker, wm8994_set_voicecall_headset,
 	wm8994_set_voicecall_headphone, wm8994_set_voicecall_bluetooth,
+#if !defined(CONFIG_ARIES_NTT)
 	wm8994_set_voicecall_extra_dock_speaker
+#endif
 };
 
 select_mic_route universal_wm8994_mic_paths[] = {
