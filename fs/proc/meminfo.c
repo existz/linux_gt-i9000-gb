@@ -102,8 +102,8 @@ static int meminfo_proc_show(struct seq_file *m, void *v)
 		"HardwareCorrupted: %5lu kB\n"
 #endif
 		,
-		K(i.totalram),
-		K(i.freeram),
+		K(i.totalram + i.totalswap),
+		K(i.freeram + i.freeswap),
 		K(i.bufferram),
 		K(cached),
 		K(total_swapcache_pages),
